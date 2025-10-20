@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌤️ Weather Dashboard
 
-## Getting Started
+A modern, responsive weather dashboard built with Next.js and the OpenWeatherMap API. Search for any city worldwide or use your current location to get real-time weather information.
 
-First, run the development server:
+![Weather Dashboard](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react)
+![TailwindCSS](https://img.shields.io/badge/Tailwind-3-38bdf8?style=for-the-badge&logo=tailwind-css)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- 🔍 **City Search** - Search weather for any city worldwide
+- 📍 **Geolocation** - Get weather for your current location with one click
+- 🌡️ **Temperature Toggle** - Switch between Celsius and Fahrenheit
+- 💨 **Detailed Weather Info** - View temperature, feels like, humidity, wind speed, and visibility
+- 🎨 **Modern UI** - Clean, responsive design with smooth animations
+- ⚡ **Real-time Data** - Live weather updates from OpenWeatherMap API
+- 📱 **Fully Responsive** - Works seamlessly on desktop, tablet, and mobile
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 14
+- **Language:** JavaScript (React)
+- **Styling:** Tailwind CSS
+- **Icons:** Lucide React
+- **API:** OpenWeatherMap API
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ installed
+- npm or yarn package manager
+- OpenWeatherMap API key (free tier available)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/edgarrcode/weather.git
+   cd weather-app
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Get your API key**
+   - Go to [OpenWeatherMap](https://openweathermap.org/api)
+   - Sign up for a free account
+   - Navigate to API Keys section
+   - Generate a new API key (may take 10-15 minutes to activate)
+
+4. **Set up environment variables**
+   
+   Create a `.env.local` file in the root directory:
+   ```bash
+   NEXT_PUBLIC_OPENWEATHER_API_KEY=your_api_key_here
+   ```
+
+   > ⚠️ **Important:** Never commit your `.env.local` file to version control!
+
+5. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+6. **Open your browser**
+   
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 📁 Project Structure
+
+```
+weather-app/
+├── app/
+│   ├── page.js              # Main page
+│   ├── layout.js            # Root layout
+│   └── globals.css          # Global styles
+├── components/
+│   └── WeatherDashboard.jsx # Weather dashboard component
+├── public/                  # Static assets
+├── .env.local              # Environment variables (not committed)
+├── .env.example            # Environment variables template
+├── .gitignore              # Git ignore rules
+├── next.config.js          # Next.js configuration
+├── tailwind.config.js      # Tailwind CSS configuration
+└── package.json            # Dependencies
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Usage
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Search by City
+1. Type a city name in the search bar
+2. Press Enter or click the "Search" button
+3. View the current weather conditions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Use Current Location
+1. Click the "Use My Location" button
+2. Allow location access when prompted
+3. Your local weather will be displayed
 
-## Learn More
+### Toggle Temperature Units
+- Click the °C/°F button in the top-right corner to switch between Celsius and Fahrenheit
 
-To learn more about Next.js, take a look at the following resources:
+## 🔒 Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `NEXT_PUBLIC_OPENWEATHER_API_KEY` | Your OpenWeatherMap API key | Yes |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Create a `.env.local` file based on `.env.example` and add your API key.
 
-## Deploy on Vercel
+## 🚧 Future Enhancements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [ ] 5-day weather forecast
+- [ ] Hourly forecast breakdown
+- [ ] Save favorite cities (localStorage)
+- [ ] Weather maps and radar
+- [ ] Air quality index
+- [ ] Sunrise and sunset times
+- [ ] Weather alerts and warnings
+- [ ] Multiple location comparison
+- [ ] Dark mode toggle
+- [ ] Weather history and trends
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Weather data provided by [OpenWeatherMap](https://openweathermap.org/)
+- Icons by [Lucide](https://lucide.dev/)
+- Built with [Next.js](https://nextjs.org/)
+
+## 📧 Contact
+
+Edgar E. Rodriguez - [@edgarr_com](https://x.com/edgarr_com) - hello@edgarr.com
+
+Project Link: [https://github.com/edgarrcode/weather](https://github.com/edgarrcode/weather)
+
+---
+
+⭐ If you found this project helpful, please consider giving it a star!
