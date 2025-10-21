@@ -112,60 +112,60 @@ const WeatherDashboard = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Header */}
       <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-              <Cloud className="text-white" size={24} />
+        <div className="max-w-7xl mx-auto px-4 py-3 md:px-6 md:py-4 flex items-center justify-between">
+          <div className="flex items-center gap-2 md:gap-3">
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg md:rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
+              <Cloud className="text-white" size={20} />
             </div>
-            <h1 className="text-2xl font-bold text-white">Weather</h1>
+            <h1 className="text-xl md:text-2xl font-bold text-white">Weather</h1>
           </div>
           {weather && (
             <button
               onClick={toggleUnit}
-              className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition"
+              className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition"
             >
-              Switch to {unit === 'metric' ? '°F' : '°C'}
+              {unit === 'metric' ? '°F' : '°C'}
             </button>
           )}
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-6 py-12">
+      <main className="max-w-7xl mx-auto px-4 py-4 md:px-6 md:py-12">
         {/* Hero Section */}
         {!weather && !loading && (
-          <div className="text-center mb-12">
-            <h2 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
+          <div className="text-center mb-6 md:mb-12">
+            <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-2 md:mb-4 tracking-tight">
               See everything.
               <br />
               <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
                 Know the weather.
               </span>
             </h2>
-            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+            <p className="text-base md:text-xl text-slate-400 max-w-2xl mx-auto">
               Real-time weather data for any location worldwide. Simple, fast, and accurate.
             </p>
           </div>
         )}
 
         {/* Search Section */}
-        <div className="max-w-2xl mx-auto mb-12">
-          <div className="bg-slate-900 rounded-2xl shadow-xl border border-slate-800 p-6">
-            <div className="flex gap-3 mb-4">
+        <div className="max-w-2xl mx-auto mb-6 md:mb-12">
+          <div className="bg-slate-900 rounded-2xl shadow-xl border border-slate-800 p-4 md:p-6">
+            <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mb-3 md:mb-4">
               <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-500" size={20} />
+                <Search className="absolute left-3 md:left-4 top-1/2 transform -translate-y-1/2 text-slate-500" size={18} />
                 <input
                   type="text"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Search for any city..."
-                  className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none text-white placeholder:text-slate-500"
+                  className="w-full pl-10 md:pl-12 pr-3 md:pr-4 py-2.5 md:py-3.5 text-sm md:text-base rounded-xl bg-slate-950 border border-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none text-white placeholder:text-slate-500"
                 />
               </div>
               <button
                 onClick={handleSearch}
-                className="px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:from-blue-700 hover:to-indigo-700 transition font-semibold shadow-lg shadow-blue-500/20 disabled:opacity-50"
+                className="px-6 md:px-8 py-2.5 md:py-3.5 text-sm md:text-base bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:from-blue-700 hover:to-indigo-700 transition font-semibold shadow-lg shadow-blue-500/20 disabled:opacity-50"
                 disabled={loading}
               >
                 {loading ? 'Searching...' : 'Search'}
@@ -174,10 +174,10 @@ const WeatherDashboard = () => {
 
             <button
               onClick={handleGeolocation}
-              className="w-full py-3 text-slate-300 hover:text-white hover:bg-slate-800 rounded-xl transition font-medium flex items-center justify-center gap-2 border border-slate-800"
+              className="w-full py-2.5 md:py-3 text-sm md:text-base text-slate-300 hover:text-white hover:bg-slate-800 rounded-xl transition font-medium flex items-center justify-center gap-2 border border-slate-800"
               disabled={loading}
             >
-              <MapPin size={18} />
+              <MapPin size={16} />
               Use current location
             </button>
 
@@ -192,9 +192,52 @@ const WeatherDashboard = () => {
         {/* Weather Display */}
         {weather && (
           <div className="max-w-6xl mx-auto">
-            {/* Main Weather Card */}
-            <div className="bg-slate-900 rounded-2xl shadow-xl border border-slate-800 p-8 mb-6">
-              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            {/* Main Weather Card - Mobile Optimized */}
+            <div className="bg-slate-900 rounded-2xl shadow-xl border border-slate-800 p-4 md:p-8 mb-4 md:mb-6">
+              {/* Mobile Layout - Horizontal */}
+              <div className="md:hidden">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-2xl font-bold text-white">
+                      {weather.name}
+                    </h3>
+                    <span className="px-2 py-0.5 bg-slate-800 text-slate-300 rounded-lg text-xs font-medium">
+                      {weather.sys.country}
+                    </span>
+                  </div>
+                </div>
+                
+                <p className="text-sm text-slate-400 capitalize mb-4">
+                  {weather.weather[0].description}
+                </p>
+
+                <div className="flex items-start justify-between">
+                  <div>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-6xl font-bold text-white leading-none">
+                        {Math.round(weather.main.temp)}
+                      </span>
+                      <span className="text-3xl font-semibold text-slate-500">
+                        {tempUnit}
+                      </span>
+                    </div>
+                    <p className="text-sm text-slate-400 mt-2">
+                      Feels like {Math.round(weather.main.feels_like)}{tempUnit}
+                    </p>
+                  </div>
+
+                  <div className="flex-shrink-0">
+                    <img
+                      src={getWeatherIcon(weather.weather[0].icon)}
+                      alt={weather.weather[0].description}
+                      className="w-28 h-28 drop-shadow-2xl"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop Layout - Same as before */}
+              <div className="hidden md:flex items-start md:items-center justify-between gap-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="text-4xl font-bold text-white">
@@ -217,7 +260,7 @@ const WeatherDashboard = () => {
                     </span>
                   </div>
                   
-                  <p className="text-slate-400 mt-2">
+                  <p className="text-base text-slate-400 mt-2">
                     Feels like {Math.round(weather.main.feels_like)}{tempUnit}
                   </p>
                 </div>
@@ -233,80 +276,62 @@ const WeatherDashboard = () => {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-slate-900 rounded-2xl shadow-xl border border-slate-800 p-6 hover:border-slate-700 transition">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center border border-blue-500/20">
-                    <Gauge className="text-blue-400" size={20} />
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-6">
+              <div className="bg-slate-900 rounded-xl md:rounded-2xl shadow-xl border border-slate-800 p-3 md:p-6 hover:border-slate-700 transition">
+                <div className="flex items-center gap-2 mb-2 md:mb-3">
+                  <div className="w-7 h-7 md:w-10 md:h-10 bg-blue-500/10 rounded-lg flex items-center justify-center border border-blue-500/20">
+                    <Gauge className="text-blue-400" size={14} />
                   </div>
-                  <span className="text-sm font-medium text-slate-400">Pressure</span>
+                  <span className="text-xs md:text-sm font-medium text-slate-400">Pressure</span>
                 </div>
-                <p className="text-3xl font-bold text-white">
+                <p className="text-xl md:text-3xl font-bold text-white">
                   {weather.main.pressure}
                 </p>
-                <p className="text-sm text-slate-500 mt-1">hPa</p>
+                <p className="text-xs md:text-sm text-slate-500 mt-0.5 md:mt-1">hPa</p>
               </div>
 
-              <div className="bg-slate-900 rounded-2xl shadow-xl border border-slate-800 p-6 hover:border-slate-700 transition">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 bg-cyan-500/10 rounded-lg flex items-center justify-center border border-cyan-500/20">
-                    <Droplets className="text-cyan-400" size={20} />
+              <div className="bg-slate-900 rounded-xl md:rounded-2xl shadow-xl border border-slate-800 p-3 md:p-6 hover:border-slate-700 transition">
+                <div className="flex items-center gap-2 mb-2 md:mb-3">
+                  <div className="w-7 h-7 md:w-10 md:h-10 bg-cyan-500/10 rounded-lg flex items-center justify-center border border-cyan-500/20">
+                    <Droplets className="text-cyan-400" size={14} />
                   </div>
-                  <span className="text-sm font-medium text-slate-400">Humidity</span>
+                  <span className="text-xs md:text-sm font-medium text-slate-400">Humidity</span>
                 </div>
-                <p className="text-3xl font-bold text-white">
+                <p className="text-xl md:text-3xl font-bold text-white">
                   {weather.main.humidity}
                 </p>
-                <p className="text-sm text-slate-500 mt-1">percent</p>
+                <p className="text-xs md:text-sm text-slate-500 mt-0.5 md:mt-1">percent</p>
               </div>
 
-              <div className="bg-slate-900 rounded-2xl shadow-xl border border-slate-800 p-6 hover:border-slate-700 transition">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center border border-indigo-500/20">
-                    <Wind className="text-indigo-400" size={20} />
+              <div className="bg-slate-900 rounded-xl md:rounded-2xl shadow-xl border border-slate-800 p-3 md:p-6 hover:border-slate-700 transition">
+                <div className="flex items-center gap-2 mb-2 md:mb-3">
+                  <div className="w-7 h-7 md:w-10 md:h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center border border-indigo-500/20">
+                    <Wind className="text-indigo-400" size={14} />
                   </div>
-                  <span className="text-sm font-medium text-slate-400">Wind Speed</span>
+                  <span className="text-xs md:text-sm font-medium text-slate-400">Wind</span>
                 </div>
-                <p className="text-3xl font-bold text-white">
+                <p className="text-xl md:text-3xl font-bold text-white">
                   {Math.round(weather.wind.speed)}
                 </p>
-                <p className="text-sm text-slate-500 mt-1">{speedUnit}</p>
+                <p className="text-xs md:text-sm text-slate-500 mt-0.5 md:mt-1">{speedUnit}</p>
               </div>
 
-              <div className="bg-slate-900 rounded-2xl shadow-xl border border-slate-800 p-6 hover:border-slate-700 transition">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center border border-purple-500/20">
-                    <Eye className="text-purple-400" size={20} />
+              <div className="bg-slate-900 rounded-xl md:rounded-2xl shadow-xl border border-slate-800 p-3 md:p-6 hover:border-slate-700 transition">
+                <div className="flex items-center gap-2 mb-2 md:mb-3">
+                  <div className="w-7 h-7 md:w-10 md:h-10 bg-purple-500/10 rounded-lg flex items-center justify-center border border-purple-500/20">
+                    <Eye className="text-purple-400" size={14} />
                   </div>
-                  <span className="text-sm font-medium text-slate-400">Visibility</span>
+                  <span className="text-xs md:text-sm font-medium text-slate-400">Visibility</span>
                 </div>
-                <p className="text-3xl font-bold text-white">
+                <p className="text-xl md:text-3xl font-bold text-white">
                   {(weather.visibility / 1000).toFixed(1)}
                 </p>
-                <p className="text-sm text-slate-500 mt-1">kilometers</p>
+                <p className="text-xs md:text-sm text-slate-500 mt-0.5 md:mt-1">km</p>
               </div>
             </div>
           </div>
         )}
 
-        {/* Setup Notice */}
-        {!weather && !loading && !error && (
-          <div className="max-w-2xl mx-auto bg-amber-900/20 border border-amber-800/50 rounded-2xl p-6">
-            <div className="flex items-start gap-3">
-              <div className="w-6 h-6 bg-amber-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-white text-sm font-bold">!</span>
-              </div>
-              <div>
-                <h3 className="font-semibold text-amber-400 mb-2">Setup Required</h3>
-                <ol className="text-sm text-amber-300/80 space-y-1.5 list-decimal list-inside">
-                  <li>Sign up at OpenWeatherMap</li>
-                  <li>Get your free API key</li>
-                  <li>Add it to your .env.local file</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        )}
       </main>
     </div>
   );
